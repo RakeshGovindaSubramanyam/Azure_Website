@@ -129,13 +129,14 @@ section {
 }
 
 .skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
+    max-width: 600px;
 }
 
 .skill-category {
-    margin-bottom: 1.5rem;
+    width: 100%;
 }
 
 .skill-tags {
