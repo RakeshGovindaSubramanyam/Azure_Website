@@ -1,26 +1,49 @@
+using System;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
+using Microsoft.Azure.WebJobs.Extensions.CosmosDB;
+using System.Net.Http;
+using System.Text;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace Company.Function
 {
-    public class GetResumeCounter
+    public static class GetResumeCounter
     {
-        private readonly ILogger<GetResumeCounter> _logger;
-
-        public GetResumeCounter(ILogger<GetResumeCounter> logger)
+        [FunctionName("GetAndUpdateCounter")]
+        public static async Task<HttpResponseMessage> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [CosmosDB(
+                databaseName: "Azureresume",
+                containerName: "counter",
+                Connection = "AzureResumeConnectionString",
+                Id = "1",
+                PartitionKey = "1")] Counter counter,
+            [CosmosDB(
+                databaseName: "Azureresume",
+                containerName: "counter",
+                Connection = "AzureResumeConnectionString",
+                Id = "1",
+                PartitionKey = "1")] IAsyncCollector<Counter> updatedCounter,
+            ILogger log)
         {
-            _logger = logger;
-        }
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
-        [Function("GetResumeCounter")]
-        public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
+            // Increment the count
+            counter.Count++;
 
-        
-        {
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
-            return new OkObjectResult("Welcome to Azure Functions!");
+            // Update the counter in Cosmos DB
+            await updatedCounter.AddAsync(counter);
+
+            var jsonToReturn = JsonConvert.SerializeObject(counter);
+
+            return new HttpResponseMessage(System.Net.HttpStatusCode.OK)
+            {
+                Content = new StringContent(jsonToReturn, Encoding.UTF8, "application/json")
+            };
         }
     }
 }
