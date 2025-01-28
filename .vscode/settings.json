@@ -6,5 +6,8 @@
     "azureFunctions.preDeployTask": "publish (functions)",
     "azureFunctions.scmDoBuildDuringDeployment": true,
     "azureFunctions.projectLanguageModel": 2,
-    "azureFunctions.projectSubpath": "Backend\\api"
+    "azureFunctions.projectSubpath": "Backend\\api",
+    "github-actions.workflows.pinned.workflows": [
+        ".github/workflows/front.main.yml"
+    ]
 }
