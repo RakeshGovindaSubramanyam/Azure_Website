@@ -69,13 +69,10 @@
 		},
 		{
 			"type": "func",
-			"dependsOn": "build (functions)",
-			"options": {
-				"cwd": "${workspaceFolder}/Backend\\api/bin/Debug/net6.0"
-			},
+			"label": "func: host start",
 			"command": "host start",
-			"isBackground": true,
-			"problemMatcher": "$func-dotnet-watch"
+			"problemMatcher": "$func-python-watch",
+			"isBackground": true
 		}
 	]
 }
