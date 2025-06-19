@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // ✅ Visitor Counter logic
+    // Visitor Counter logic
     const counterEl = document.getElementById('visitor-count');
 
     if (counterEl) {
