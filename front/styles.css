@@ -402,6 +402,7 @@ body {
 }
 
 section#visitors {
+    min-height: 15rem;
     background: none !important;
     box-shadow: none;
     text-align: center;
@@ -420,6 +421,14 @@ section#visitors h2 {
 section#visitors span {
     font-weight: bold;
     color: #00ff9d;
+}
+
+section#certifications{
+    min-height: 20rem;
+}
+
+section#contact {
+    min-height: 25rem;
 }
 
 nav a.active {
