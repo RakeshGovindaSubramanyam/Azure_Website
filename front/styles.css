@@ -431,6 +431,14 @@ section#contact {
     min-height: 25rem;
 }
 
+section#about {
+    margin-bottom: 0rem; 
+    padding-bottom: 0rem; 
+}
+
+section#experience {
+    margin-top: -12rem; 
+}
 nav a.active {
     color: #00ff9d;
 }
