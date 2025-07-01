@@ -3,8 +3,10 @@ print("Hello, World!")
 #Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 #Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
-
-Designed and implemented ETL processes using complex SQL queries, stored procedures, and Azure Data Factory to support data integration and transformation across systems.
-Automated SQL-based data validation, backup/restore, and schema deployment tasks using PowerShell, Azure CLI, and CI/CD pipelines in Azure DevOps.
-Developed monitoring and alerting dashboards using Azure Monitor, Log Analytics, and SQL performance insights to   proactively resolve issues and optimize database health.
-Tools Used: Azure, SSMS, SQL Server, Azure Data Factory, PowerShell, Azure CLI, Azure DevOps. 
+Validated data across source and target systems using complex SQL queries, Unix shell scripting, and tools like Teradata and Informatica. Performed backend data testing and automated validations for large datasets, ensuring accuracy, completeness, and consistency.
+Developed and maintained UI test automation using Selenium WebDriver with Python and pytest, covering user flows, forms, and cross-browser compatibility.
+Experienced in SDLC and STLC processes with a strong focus on ETL/data warehouse testing and UI automation.
+Monitored and validated scheduled ETL jobs using Control-M and Autosys, investigated and resolved job failures.
+Designed and executed detailed test cases; managed defect tracking and traceability using HP ALM.
+Conducted end-to-end regression, progression, and integration testing to ensure system stability after changes.
+Tools Used: Control-M Scheduling tool, Teradata, Informatica (Workflow Manager, Workflow Monitor), Selenium WebDriver, Autosys, HP ALM, Jira, GIT, Unix/Linux, MySQL.
